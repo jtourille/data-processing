@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "data-processing"
+version = "0.1.0"
+description = ""
+authors = ["Julien Tourille <julien.tourille@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "dataprep", from = "src"},
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.6"
+
+[tool.ruff]
+target-version = "py39"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",
+    "F401", # Unused imports
+    "C901",  # too complex
+    "W191", # indentation contains tabs
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
